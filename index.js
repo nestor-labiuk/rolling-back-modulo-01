@@ -4,6 +4,8 @@ const coursesRouter = require('./routes/courses.routes')
 const mongoose = require('mongoose')
 require('dotenv').config()
 
+app.use(express.json())
+
 // * Ejemplo de request con queris
 // app.get('/api/back?', (req, res) => {
 //     const { name } = req.query
