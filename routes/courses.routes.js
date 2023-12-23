@@ -6,7 +6,7 @@ router.get('/', getAllCourses)
 router.get('/:id', getCourseById)
 router.post('/',
     body('name', 'Name is required').notEmpty(),
-    body('price', 'Price is required and must be a number').notEmpty().isNumeric(),
+    // body('price', 'Price is required and must be a number').notEmpty().isNumeric(),
     body('description', 'Description is required').notEmpty(),
     (req, res, next) => {
         const result = validationResult(req)
