@@ -16,12 +16,17 @@ const getCourseById = async (req, res) => {
 }
 
 const createCourse = async (req, res) => {
-    const { name, price, description } = req.body
+    try {
+        const { name, price, description } = req.body
+        const course = new Course({ name, price, description })
+        await course.save()
+        res.json({ message: 'Create course', course })
 
-    const course = new Course({ name, price, description })
-    await course.save()
-
-    res.json({ message: 'Create course', course })
+    } catch (error) {
+        console.log(createCourse, error)
+        res.status(500)
+        res.json({ message: 'Internal server error ' })
+    }
 }
 
 const updateCourse = async (req, res) => {
