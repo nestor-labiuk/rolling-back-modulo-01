@@ -1,0 +1,27 @@
+### * List of courses - OK - *
+GET http://localhost:3000/api/courses
+
+### * Couse by id - OK - 
+GET http://localhost:3000/api/courses/65861ca56f5e854eeaaebd1f
+
+### * Create a new course - OK - *
+POST http://localhost:3000/api/courses
+Content-Type: application/json
+
+{
+  "name": "CSS",
+  "price": 115000,
+  "description": "Curso básico de CSS"
+}
+
+### * Update course by id - OK - *
+PATCH http://localhost:3000/api/courses/65861ca56f5e854eeaaebd1f
+Content-Type: application/json
+
+{
+  "name": "Fullstack"
+}
+
+### * Delete course by id - OK - *
+DELETE http://localhost:3000/api/courses/65874aad9e85db0274983cbe
+
