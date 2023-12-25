@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const { getAllCourses, getCourseById, createCourse, updateCourse, deleteCourse } = require('../controllers/courses.controllers')
 const { errorCatcher, validationMongoId } = require('../middlewares/common.middlewares')
-const { validateCreateCourse } = require('../middlewares/course.middleware')
+const { validateCreateCourse, validateUpdateCourse } = require('../middlewares/course.middleware')
 
 router.get('/',
     getAllCourses,
@@ -21,7 +21,7 @@ router.post('/',
 
 router.patch('/:id',
     validationMongoId,
-    validateCreateCourse,
+    validateUpdateCourse,
     updateCourse,
     errorCatcher
 )
