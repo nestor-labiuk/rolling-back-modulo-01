@@ -39,11 +39,15 @@ const createCourse = async (req, res, next) => {
 const updateCourse = async (req, res, next) => {
     try { const { id } = req.params
         const { name, price, description } = req.body
-        const course = await Course.findByIdAndUpdate({ _id: id }, { name: name, price: price, description: description }, { new: true })
-        if (!course) {
+        const currentCourse = await Course.findById(id)
+        if (!currentCourse) {
             res.status(404)
             return res.json({ message: 'Course not found' })
         }
+        currentCourse.name = name || currentCourse.name
+        currentCourse.price = price || currentCourse.price
+        currentCourse.description = description || currentCourse.description
+        const course = await currentCourse.save()
         res.json({ message: 'Course update', course })
     } catch (err) {
         next(err)
