@@ -6,7 +6,7 @@ const requestValidation = (req, res, next) => {
     next()
 }
 
-const errorMiddewares = (err, req, res, next) => {
+const errorCatcher = (err, req, res, next) => {
     console.log('Error Capturado', err)
     res.status(500)
     res.json({ message: 'Internal server error ' })
@@ -14,6 +14,6 @@ const errorMiddewares = (err, req, res, next) => {
 }
 
 module.exports = {
-    errorMiddewares,
+    errorCatcher,
     requestValidation
 }

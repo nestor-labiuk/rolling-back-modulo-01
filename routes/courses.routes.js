@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const { body } = require('express-validator')
 const { getAllCourses, getCourseById, createCourse, updateCourse, deleteCourse } = require('../controllers/courses.controllers')
-const { errorMiddewares, requestValidation } = require('../middlewares/common.middlewares')
+const { requestValidation, errorCatcher } = require('../middlewares/common.middlewares')
 
 router.get('/', getAllCourses)
 router.get('/:id', getCourseById)
@@ -12,7 +12,7 @@ router.post('/',
     body('description', 'Description is required').notEmpty(),
     requestValidation,
     createCourse,
-    errorMiddewares
+    errorCatcher
 )
 router.patch('/:id', updateCourse)
 router.delete('/:id', deleteCourse)
