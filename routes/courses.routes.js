@@ -21,6 +21,7 @@ router.post('/',
 
 router.patch('/:id',
     validationMongoId,
+    validateCreateCourse,
     updateCourse,
     errorCatcher
 )
