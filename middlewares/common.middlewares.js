@@ -1,4 +1,4 @@
-const { validationResult } = require('express-validator')
+const { param, validationResult } = require('express-validator')
 
 const requestValidation = (req, res, next) => {
     const result = validationResult(req)
@@ -13,7 +13,13 @@ const errorCatcher = (err, req, res, next) => {
     next()
 }
 
+const validationMongoId = [
+    param('id', 'id is not a Mongo ID').isMongoId(),
+    requestValidation
+]
+
 module.exports = {
     errorCatcher,
-    requestValidation
+    requestValidation,
+    validationMongoId,
 }
