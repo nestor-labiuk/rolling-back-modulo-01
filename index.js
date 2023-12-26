@@ -1,10 +1,15 @@
 const express = require('express')
-const app = express()
-const coursesRouter = require('./routes/courses.routes') 
+const morgan = require('morgan')
 const mongoose = require('mongoose')
+const coursesRouter = require('./routes/courses.routes') 
 require('dotenv').config()
 
+const app = express()
+
 app.use(express.json())
+
+app.use(morgan('dev'))
+
 app.use('/api/courses', coursesRouter)
 
 mongoose.connect(process.env.MONGO_CONNECTIONS)

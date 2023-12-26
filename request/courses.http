@@ -3,7 +3,7 @@ GET http://localhost:3000/api/courses
 
 
 ### * Couse by id - OK - 
-GET http://localhost:3000/api/courses/65898b2a01ae93b55e198c03
+GET http://localhost:3000/api/courses/65898b2a01ae93b55e198c02
 
 
 ### * Create a new course - OK - *
@@ -11,20 +11,20 @@ POST http://localhost:3000/api/courses
 Content-Type: application/json
 
 {
-  "name": "Validation test",
+  "name": "Validation test 11",
   "price": "120000",
-  "description": ""
+  "description": "Lo que sea"
 }
 
 
 ### * Update course by id - OK - *
-PATCH http://localhost:3000/api/courses/65898b2a01ae93b55e198c03
+PATCH http://localhost:3000/api/courses/658b44acd2a7c73cf2b63f9c
 Content-Type: application/json
 
 {
-  "name": "",
-  "price": 210000,
-  "description":"prueba de actualizacion 13"
+  "name": "Morgan Course 2",
+  "price": "",
+  "description":""
 }
 
 

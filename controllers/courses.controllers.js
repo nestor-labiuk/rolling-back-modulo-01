@@ -30,7 +30,7 @@ const createCourse = async (req, res, next) => {
         const { name, price, description } = req.body
         const course = new Course({ name, price, description })
         await course.save()
-        res.json({ message: 'Create course', course })
+        res.status(201).json({ message: 'Create course', course })
     } catch (err) {
         next(err)
     }
@@ -41,7 +41,7 @@ const updateCourse = async (req, res, next) => {
         const { name, price, description } = req.body
         const currentCourse = await Course.findById(id)
         if (!currentCourse) {
-            res.status(404)
+            res.status(400)
             return res.json({ message: 'Course not found' })
         }
         currentCourse.name = name || currentCourse.name
