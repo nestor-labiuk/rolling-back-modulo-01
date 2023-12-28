@@ -10,7 +10,8 @@ router.get('/',
 
 router.get('/:id',
     validationMongoId,
-    getCourseById
+    getCourseById,
+    errorCatcher
 )
 
 router.post('/',
