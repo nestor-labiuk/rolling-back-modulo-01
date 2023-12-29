@@ -14,7 +14,7 @@ app.use(morgan('dev'))
 app.use('/api/courses', coursesRouter)
 
 mongoose.connect(process.env.MONGO_CONNECTIONS)
-    .then(() => logger.info('Connected to mongodb')) 
-    .catch(() => logger.error('Not connect'))
+    .then(() => logger.info({ message: 'Connected to data base' })) 
+    .catch(() => logger.error({ message: 'Not connect to data base' }))
 
-app.listen(3000, () => logger.info('Server listening on port', 3000))
+app.listen(process.env.PORT, () => logger.info({ message: 'Server listening on port ' + process.env.PORT }))
