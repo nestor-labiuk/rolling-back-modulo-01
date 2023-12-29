@@ -12,6 +12,17 @@ const logger = winston.createLogger({
     ]
 })
 
+const removedEntitiesLogger = winston.createLogger({
+    level: 'info',
+    format: winston.format.json(),
+    defaultMeta: { service: 'user-service' },
+    transports: [
+        new winston.transports.File({ filename: 'removedEntities.log', }),
+        new winston.transports.Console()
+    ]
+})
+
 module.exports = {
-    logger
+    logger,
+    removedEntitiesLogger
 }
