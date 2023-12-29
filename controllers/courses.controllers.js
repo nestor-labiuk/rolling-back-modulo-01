@@ -1,5 +1,5 @@
 const { removedEntitiesLogger } = require('../loggers')
-const Course = require('../model/Course')
+const Course = require('../models/Course')
 
 const getAllCourses = async(req, res, next) => {
     try {
