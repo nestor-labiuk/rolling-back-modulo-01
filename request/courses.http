@@ -3,7 +3,7 @@ GET http://localhost:3000/api/courses
 
 
 ### * Couse by id - OK - 
-GET http://localhost:3000/api/courses/65898b2a01ae93b55e198c02
+GET http://localhost:3000/api/courses/658ec1ec43fea95f9acfa75a
 
 
 ### * Create a new course - OK - *
@@ -11,22 +11,22 @@ POST http://localhost:3000/api/courses
 Content-Type: application/json
 
 {
-  "name": "Validation test 11",
-  "price": "120000",
-  "description": "Lo que sea"
+  "name": "",
+  "price": 25000,
+  "description": "prueba error interno 5"
 }
 
 
 ### * Update course by id - OK - *
-PATCH http://localhost:3000/api/courses/658b44acd2a7c73cf2b63f9c
+PATCH http://localhost:3000/api/courses/658ec1ec43fea95f9acfa75a
 Content-Type: application/json
 
 {
-  "name": "Morgan Course 2",
+  "name": "Otra prueba 2",
   "price": "",
   "description":""
 }
 
 
 ### * Delete course by id - OK - *
-DELETE http://localhost:3000/api/courses/6589a354522f07cc31f7410c
+DELETE http://localhost:3000/api/courses/65898b2a01ae93b55e198c03

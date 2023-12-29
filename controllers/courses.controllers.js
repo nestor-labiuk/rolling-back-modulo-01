@@ -1,3 +1,4 @@
+const { removedEntitiesLogger } = require('../loggers')
 const Course = require('../model/Course')
 
 const getAllCourses = async(req, res, next) => {
@@ -62,6 +63,7 @@ const deleteCourse = async (req, res, next) => {
             res.status(404)
             return res.json({ message: 'Course not found' })
         }
+        removedEntitiesLogger.info({ message: 'Course deleted', course })
         res.json({ message: 'Deleted course', course })
     } catch (err) {
         next(err)
