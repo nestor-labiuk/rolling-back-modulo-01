@@ -1,4 +1,5 @@
 const { param, validationResult } = require('express-validator')
+const { logger } = require('../loggers')
 
 const requestValidation = (req, res, next) => {
     const result = validationResult(req)
@@ -7,7 +8,7 @@ const requestValidation = (req, res, next) => {
 }
 
 const errorCatcher = (err, req, res, next) => {
-    console.log('Error Capturado', err)
+    logger.error('Error Capturado', err)
     res.status(500)
     res.json({ message: 'Internal server error ' })
     next()
