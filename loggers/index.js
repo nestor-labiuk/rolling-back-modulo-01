@@ -1,24 +1,48 @@
-const winston = require('winston')
+const { createLogger, format, transports } = require('winston')
 
-const logger = winston.createLogger({
+const logger = createLogger({
     level: 'info',
-    format: winston.format.json(),
+    format: format.combine(
+        format.json(),
+        format.timestamp({
+            format: 'DD-MM-YYYY HH:mm:ss' 
+        }),
+        format.prettyPrint()
+    ),
     defaultMeta: { service: 'user-service' },
     transports: [
-        new winston.transports.File({ filename: 'error.log', level: 'error' }),
-        new winston.transports.File({ filename: 'general.log' }),
-        new winston.transports.Console()
+        new transports.File({ filename: 'error.log', level: 'error' }),
+        
+        new transports.File({ filename: 'general.log' }),
+        new transports.Console({
+            format: format.combine(
+                format.colorize(),
+                format.cli()
+            ),
+        })
 
     ]
 })
 
-const removedEntitiesLogger = winston.createLogger({
+const removedEntitiesLogger = createLogger({
     level: 'info',
-    format: winston.format.json(),
+    format: format.combine(
+        format.json(),
+        format.timestamp({
+            format: 'DD-MM-YYYY HH:mm:ss' 
+        }),
+        format.prettyPrint()
+    ),
     defaultMeta: { service: 'user-service' },
     transports: [
-        new winston.transports.File({ filename: 'removedEntities.log', }),
-        new winston.transports.Console()
+        new transports.File({ filename: 'removedEntities.log', }),
+        new transports.File({ filename: 'general.log', }),
+        new transports.Console({
+            format: format.combine(
+                format.colorize(),
+                format.cli(),
+            ),
+        })
     ]
 })
 
