@@ -3,11 +3,10 @@ const DbIncidentTransport = require('./transport/DbTransport')
 
 const logger = createLogger({
     level: 'info',
-    format: format.combine(
+    format: 
+    format.combine(
         format.json(),
-        format.timestamp({
-            format: 'DD-MM-YYYY HH:mm:ss' 
-        }),
+        format.timestamp({ format: 'DD-MM-YYYY HH:mm:ss' }),
         format.prettyPrint()
     ),
     defaultMeta: { service: 'user-service' },
@@ -16,22 +15,21 @@ const logger = createLogger({
         new transports.File({ filename: 'general.log' }),
         new DbIncidentTransport({ level: 'error' }),
         new transports.Console({
-            format: format.combine(
+            format:
+            format.combine(
                 format.colorize(),
                 format.cli()
             ),
         })
-
     ]
 })
 
 const removedEntitiesLogger = createLogger({
     level: 'info',
-    format: format.combine(
+    format: 
+    format.combine(
         format.json(),
-        format.timestamp({
-            format: 'DD-MM-YYYY HH:mm:ss' 
-        }),
+        format.timestamp({ format: 'DD-MM-YYYY HH:mm:ss' }),
         format.prettyPrint()
     ),
     defaultMeta: { service: 'user-service' },
@@ -39,7 +37,8 @@ const removedEntitiesLogger = createLogger({
         new transports.File({ filename: 'removedEntities.log', }),
         new transports.File({ filename: 'general.log', }),
         new transports.Console({
-            format: format.combine(
+            format:
+            format.combine(
                 format.colorize(),
                 format.cli(),
             ),
