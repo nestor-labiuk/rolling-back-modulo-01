@@ -1,5 +1,5 @@
 const { createLogger, format, transports } = require('winston')
-const DbIncidentTransport = require('./transport/dbIncidenTransport')
+const DbIncidentTransport = require('./transport/DbTransport')
 
 const logger = createLogger({
     level: 'info',
