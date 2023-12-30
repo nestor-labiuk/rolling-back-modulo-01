@@ -1,4 +1,4 @@
-const Transport = require('winston')
+const { Transport } = require('winston')
 const Incident = require('../../models/Incident')
 
 class DbIncidentTransport extends Transport {
@@ -7,12 +7,14 @@ class DbIncidentTransport extends Transport {
     }
 
     log(info, callback) {
-        if (info === 'error') {
+        if (info.level === 'error') {
+            console.log(info)
             setImmediate(async() => {
                 const incident = new Incident({
                     message: {
+                        date: info.timestamp,
                         error: info.message
-                    }
+                    },
                 })
                 await incident.save()
                 callback()
