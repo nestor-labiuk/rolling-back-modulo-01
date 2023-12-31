@@ -3,7 +3,10 @@ const { logger } = require('../loggers')
 
 const requestValidation = (req, res, next) => {
     const result = validationResult(req)
-    if (!result.isEmpty()) { return res.status(400).json({ errors: result.array() }) }
+    if (!result.isEmpty()) {
+        logger.warn({ message: 'the request is wrong', data: result.array() })
+        return res.status(400).json({ errors: result.array() })
+    }
     next()
 }
 
