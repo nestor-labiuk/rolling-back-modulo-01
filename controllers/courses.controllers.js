@@ -8,7 +8,8 @@ const getAllCourses = async(req, res, next) => {
             logger.warn('Courses list is empty')
             return res.json({ message: 'Courses list empty' })
         }
-        res.json({ message: 'List of courses', courses })
+        logger.info({ message: 'List of courses' })
+        res.json({ message: 'List of courses' })
     
     } catch (err) {
         next(err)
@@ -24,6 +25,7 @@ const getCourseById = async (req, res, next) => {
             logger.warn('Course not found')
             return res.json({ message: 'Course not found' })
         }
+        logger.info({ message: 'You got a course by id', course })
         res.json({ message: 'You got a course by id', course })
         
     } catch (err) {
@@ -36,6 +38,7 @@ const createCourse = async (req, res, next) => {
         const { name, price, description } = req.body
         const course = new Course({ name, price, description })
         await course.save()
+        logger.info({ message: 'Create course', course })
         res.status(201).json({ message: 'Create course', course })
     
     } catch (err) {
@@ -56,6 +59,7 @@ const updateCourse = async (req, res, next) => {
         currentCourse.price = price || currentCourse.price
         currentCourse.description = description || currentCourse.description
         const course = await currentCourse.save()
+        logger.info({ message: 'Course update', course })
         res.json({ message: 'Course update', course })
 
     } catch (err) {
