@@ -6,7 +6,6 @@ class DbDeletedTransport extends Transport {
         super(opts)
     }
     log(info, callback) {
-        console.log('***', info.message)
         setImmediate(async() => {
             const deleted = new Deleted({
                 message: {
