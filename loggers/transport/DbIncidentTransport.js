@@ -7,7 +7,7 @@ class DbIncidentTransport extends Transport {
     }
     log(info, callback) {
         if (info.level === 'error') {
-            console.log('****', info.message)
+            // console.log('****', info.message)
             setImmediate(async() => {
                 const incident = new Incident({
                     message: {
