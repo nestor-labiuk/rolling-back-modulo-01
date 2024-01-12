@@ -1,0 +1,16 @@
+### * Get teachers  - OK - 
+GET http://localhost:3000/api/teachers
+
+### * get teacher BY ID AND POPULATE- OK -
+GET http://localhost:3000/api/teachers/populate/659abd9ab617b1b9301ecd9e
+
+### * Create teacher - OK - 
+POST http://localhost:3000/api/teachers
+Content-Type: application/json
+
+{
+  "name": "Pepe",
+  "lastName": "Muleiro",
+  "email": "",
+  "course" : "65861ca56f5e854eeaaebd1f"
+}
