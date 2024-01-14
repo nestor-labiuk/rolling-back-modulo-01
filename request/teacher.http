@@ -1,7 +1,10 @@
 ### * Get teachers  - OK - 
 GET http://localhost:3000/api/teachers
 
-### * get teacher BY ID AND POPULATE- OK -
+### * Get teacher by id - OK - 
+GET http://localhost:3000/api/teachers/659abd9ab617b1b9301ecd9e
+
+### * Get teacher by id and populate - OK -
 GET http://localhost:3000/api/teachers/populate/659abd9ab617b1b9301ecd9e
 
 ### * Create teacher - OK - 
@@ -9,8 +12,21 @@ POST http://localhost:3000/api/teachers
 Content-Type: application/json
 
 {
-  "name": "Pepe",
-  "lastName": "Muleiro",
-  "email": "",
-  "course" : "65861ca56f5e854eeaaebd1f"
+  "name": "Sebastian 9",
+  "lastName": "Marlo",
+  "email": "nestor"
 }
+
+### * Update teacher - OK -
+PATCH http://localhost:3000/api/teachers/659abd9ab617b1b9301ecd9e
+Content-Type: application/json
+
+{
+  "name": "Jose",
+  "lastName": "",
+  "email": "",
+  "course" : ""
+}
+
+### * Delete teacher - OK -
+DELETE http://localhost:3000/api/teachers/65a2e4d804595822a95619fa

@@ -3,7 +3,7 @@ GET http://localhost:3000/api/courses
 
 
 ### * Couse by id - OK - 
-GET http://localhost:3000/api/courses/658ec1ec43fea95f9acfa75a
+GET http://localhost:3000/api/courses/659c690a9191004036c5daf2
 
 
 ### * Create a new course - OK - *
@@ -11,22 +11,24 @@ POST http://localhost:3000/api/courses
 Content-Type: application/json
 
 {
-  "name": "",
-  "price": 25000,
-  "description": "prueba error interno 5"
+  "name": "Probando con populate 6",
+  "price": "250000",
+  "description": "prueba teacher and student",
+  "teacher": "659b58587e0f4fbc9660c4f1",
+  "student": "659b58e6ec1e6c525c43e811"
 }
 
 
 ### * Update course by id - OK - *
-PATCH http://localhost:3000/api/courses/658ec1ec43fea95f9acfa75a
+PATCH http://localhost:3000/api/courses/6599def4b54c12ff3a2f50a9
 Content-Type: application/json
 
 {
-  "name": "Otra prueba 2",
-  "price": "",
-  "description":""
+  "name": "Otra prueba 7",
+  "price": "250000",
+  "description":"Prueba errorres"
 }
 
 
 ### * Delete course by id - OK - *
-DELETE http://localhost:3000/api/courses/65898b2a01ae93b55e198c03
+DELETE http://localhost:3000/api/courses/6599e29153efe8d7fb8c8393
