@@ -11,7 +11,6 @@ const getAllCourses = async(req, res, next) => {
         }
         logger.info(succesResponse('You got the list of courses'))
         res.json(succesResponse('You got the list of courses', courses))
-    
     } catch (err) {
         next(err)
     }
@@ -28,10 +27,8 @@ const getCourseById = async (req, res, next) => {
         }
         logger.info(succesResponse('You got a course by id', course ))
         res.json(succesResponse('You got a course by id', course ))
-        
     } catch (err) {
         res.json(errorResponse( err))
-
         next(err)
     }
 }
@@ -43,14 +40,14 @@ const createCourse = async (req, res, next) => {
         await course.save()
         logger.info(succesResponse ('Created course', course))
         res.status(201).json(succesResponse ('Created course', course))
-    
     } catch (err) {
         next(err)
     }
 }
 
 const updateCourse = async (req, res, next) => {
-    try { const { id } = req.params
+    try { 
+        const { id } = req.params
         const { name, price, description } = req.body
         const currentCourse = await Course.findById(id)
         if (!currentCourse) {
@@ -64,7 +61,6 @@ const updateCourse = async (req, res, next) => {
         const course = await currentCourse.save()
         logger.info(succesResponse('Course update', course ))
         res.json(succesResponse('Course update', course ))
-
     } catch (err) {
         next(err)
     }
@@ -81,7 +77,6 @@ const deleteCourse = async (req, res, next) => {
         }
         removedEntitiesLogger.info(succesResponse('Deleted course', course))
         res.json(succesResponse('Deleted course', course))
-
     } catch (err) {
         next(err)
     }
