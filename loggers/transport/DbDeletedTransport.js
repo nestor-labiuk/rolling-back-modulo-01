@@ -10,7 +10,7 @@ class DbDeletedTransport extends Transport {
             const deleted = new Deleted({
                 message: {
                     date: info.timestamp,
-                    course: info.course,
+                    data: info.data,
                     message: info.message,
                 }
             })  
