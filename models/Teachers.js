@@ -7,11 +7,12 @@ const teachersSchema = new Schema({
     },
     lastName: {
         type: String,
-        required: true
+        required: true,
     },
     email: {
         type: String,
-        required: false
+        required: true,
+        unique: true
     },
     course: {
         type: Schema.Types.ObjectId,
